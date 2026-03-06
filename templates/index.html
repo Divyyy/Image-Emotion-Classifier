@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+    <h1>Emotion Classifier</h1>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="imageInput" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Image preview before submission -->
+    <div class="image-container">
+        <img id="preview">
+    </div>
+
+    <!-- Image shown after prediction -->
+    {% if image_data %}
+    <div class="image-container">
+        <img src="data:image/jpeg;base64,{{ image_data }}">
+    </div>
+    {% endif %}
+
+    {% if prediction %}
+    <div class="result">
+        <p>Prediction: <span>{{ prediction }}</span></p>
+        <p>Confidence: {{ confidence }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
