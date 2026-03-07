@@ -1,4 +1,4 @@
-# Happy–Sad Image Classification (CNN)
+# Image-Emotion-Classifier (CNN)
 
 This project focuses on building a **Convolutional Neural Network (CNN) for binary image classification** to distinguish between happy and sad facial expressions.
 
